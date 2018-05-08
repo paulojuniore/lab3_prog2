@@ -4,7 +4,7 @@ package com.paulo.lab3;
  * Representa os números de telefone de um contato.
  * Todo telefone possui código do país, ddd, número e o tipo de telefone.
  * 
- * @author Paulo Mendes da Silva Júnior
+ * @author Paulo Mendes da Silva Júnior - 117210922
  */
 public class Telefone {
 	
