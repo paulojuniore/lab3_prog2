@@ -31,7 +31,7 @@ public class Agenda {
 	}
 	
 	/**
-	 * Não possui valor de retorno.
+	 * NÃ£o possui valor de retorno.
 	 * 
 	 * Cadastra um novo contato, todo contato possui uma posição, nome, sobrenome e telefone
 	 * @param contato : representa um contato que contém nome, sobrenome e telefone.
@@ -59,14 +59,14 @@ public class Agenda {
 	}
 	
 	/**
-	 * Não possui valor de retorno.
+	 * NÃ£o possui valor de retorno.
 	 * 
 	 * Exibe uma lista dos contatos já cadastrados até o momento.
 	 */
 	public void listarContatos() {
 		for (int i = 0; i < contatos.length; i++) {
 			if(contatos[i] != null)
-				System.out.printf("%d - %s %s%n", i+1, contatos[i].getNome(), contatos[i].getSobrenome());
+				System.out.printf("%d - %s %s%n", contatos[i].getPosicao(), contatos[i].getNome(), contatos[i].getSobrenome());
 		}
 		System.out.println();
 	}
