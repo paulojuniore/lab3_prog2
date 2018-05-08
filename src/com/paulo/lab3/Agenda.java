@@ -1,3 +1,4 @@
+package com.paulo.lab3;
 
 /**
  * Representa uma Agenda de contatos.
@@ -37,6 +38,9 @@ public class Agenda {
 	 * @param pos : representa a posição do contato na agenda.
 	 */
 	public void cadastrarContato(Contato contato) {
+		if(contato.getPosicao() < 1 || contato.getPosicao() > 100) {
+			throw new ArrayIndexOutOfBoundsException("POSIÇÃO INVÁLIDA!");
+		}
 		contatos[contato.getPosicao() - 1] = contato;
 		System.out.println("CADASTRO REALIZADO!\n");
 	}

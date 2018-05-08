@@ -1,3 +1,4 @@
+package com.paulo.lab3;
 import java.util.Scanner;
 
 /**
@@ -35,9 +36,15 @@ public class Menu {
 					String sobrenome = scan.next();
 					System.out.print("Telefone: ");
 					String telefone = scan.next();
-						
-					Contato contato = new Contato(pos, nome, sobrenome, telefone);
-					agenda.cadastrarContato(contato);
+					
+					try {
+						Contato contato = new Contato(1726, nome, sobrenome, telefone);
+						agenda.cadastrarContato(contato);
+					}
+					catch(ArrayIndexOutOfBoundsException e) {
+						System.out.println(e.getMessage());
+					}
+					
 					break;
 					
 				case(LISTAR):

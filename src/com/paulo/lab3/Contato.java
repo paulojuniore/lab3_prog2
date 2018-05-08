@@ -1,14 +1,15 @@
+package com.paulo.lab3;
 
 /**
  * Representa um Contato que faz parte de uma Agenda.
  * 
- * @author Paulo Mendes da Silva Júnior - 117210922
+ * @author Paulo Mendes da Silva JÃºnior - 117210922
  *
  */
 public class Contato {
 		
 	/**
-	 * Representa a posição do contato na agenda.
+	 * Representa a posiÃ§Ã£o do contato na agenda.
 	 */
 	private int posicao;
 	
@@ -28,7 +29,7 @@ public class Contato {
 	private String telefone;
 	
 	/**
-	 * Constrói um contato a partir do nome, sobrenome e telefone.
+	 * ConstrÃ³i um contato a partir do nome, sobrenome e telefone.
 	 * 
 	 * @param nome : nome do contato
 	 * @param sobrenome : sobrenome do contato
@@ -42,18 +43,18 @@ public class Contato {
 	}
 	
 	/**
-	 * Retorna a posição de um contato.
+	 * Retorna a posiÃ§Ã£o de um contato.
 	 * 
-	 * @return : a posição de um contato.
+	 * @return : a posiÃ§Ã£o de um contato.
 	 */
 	public int getPosicao() {
 		return posicao;
 	}
 	
 	/**
-	 * Altera a posição de um contato.
+	 * Altera a posiÃ§Ã£o de um contato.
 	 * 
-	 * @param posicao : a posição de um contato na agenda.
+	 * @param posicao : a posiÃ§Ã£o de um contato na agenda.
 	 */
 	public void setPosicao(int posicao) {
 		this.posicao = posicao;
@@ -114,7 +115,7 @@ public class Contato {
 	}
 	
 	/**
-	 * Sobrescreve o método equals. 
+	 * Sobrescreve o mÃ©todo equals. 
 	 * Verifica a igualdade de dois contatos.
 	 * 
 	 * @param contato : recebe um objeto de um tipo mais geral.
@@ -126,10 +127,10 @@ public class Contato {
 	}
 	
 	/**
-	 * Representação String de um objeto Contato no formato: NOME SOBRENOME - TELEFONE
+	 * RepresentaÃ§Ã£o String de um objeto Contato no formato: NOME SOBRENOME - TELEFONE
 	 */
 	public String toString() {
-		return String.format("%s %s - %s%n", nome, sobrenome, telefone);
+		return String.format("%s %s - %s"+ System.lineSeparator(), nome, sobrenome, telefone);
 	}
 	
 }
