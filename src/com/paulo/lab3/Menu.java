@@ -80,7 +80,7 @@ public class Menu {
 		System.out.println("(E)xibir Contato");
 		System.out.println("(S)air\n");
 		System.out.print("Opção> ");
-		return scan.nextLine();
+		return scan.nextLine().toUpperCase();
 	}
 
 }
