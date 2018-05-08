@@ -25,20 +25,20 @@ public class Menu {
 			switch(valor) {
 				case(CADASTRAR):
 					System.out.print("Posição: ");
-					int pos = scan.nextInt();
+					int pos = Integer.parseInt(scan.nextLine());
 					if(pos < 1 || pos > 100) {
 						System.out.println("POSIÇÃO INVÁLIDA!\n");
 						break;
 					}
 					System.out.print("Nome: ");
-					String nome = scan.next();
+					String nome = scan.nextLine();
 					System.out.print("Sobrenome: ");
-					String sobrenome = scan.next();
+					String sobrenome = scan.nextLine();
 					System.out.print("Telefone: ");
-					String telefone = scan.next();
+					String telefone = scan.nextLine();
 					
 					try {
-						Contato contato = new Contato(1726, nome, sobrenome, telefone);
+						Contato contato = new Contato(pos, nome, sobrenome, telefone);
 						agenda.cadastrarContato(contato);
 					}
 					catch(ArrayIndexOutOfBoundsException e) {
@@ -53,7 +53,7 @@ public class Menu {
 					
 				case(EXIBIR):
 					System.out.print("Contato> ");
-					pos = scan.nextInt();
+					pos = Integer.parseInt(scan.nextLine());
 					agenda.exibirContato(pos);
 					break;
 					
@@ -80,7 +80,7 @@ public class Menu {
 		System.out.println("(E)xibir Contato");
 		System.out.println("(S)air\n");
 		System.out.print("Opção> ");
-		return scan.next();
+		return scan.nextLine();
 	}
 
 }

@@ -130,7 +130,7 @@ public class Contato {
 	 * Representação String de um objeto Contato no formato: NOME SOBRENOME - TELEFONE
 	 */
 	public String toString() {
-		return String.format("%s %s - %s"+ System.lineSeparator(), nome, sobrenome, telefone);
+		return String.format("%s %s - %s" + System.lineSeparator(), nome, sobrenome, telefone);
 	}
 	
 }
