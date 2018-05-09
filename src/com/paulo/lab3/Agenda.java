@@ -37,11 +37,11 @@ public class Agenda {
 	 * @param contato : representa um contato que contém nome, sobrenome e telefone.
 	 * @param pos : representa a posição do contato na agenda.
 	 */
-	public void cadastrarContato(Contato contato) {
-		if(contato.getPosicao() < 1 || contato.getPosicao() > 100) {
+	public void cadastrarContato(int posicao, String nome, String sobrenome, Telefone telefone, int nivelAmizade) {
+		if(posicao < 1 || posicao > 100) {
 			throw new ArrayIndexOutOfBoundsException("POSIÇÃO INVÁLIDA!");
 		}
-		contatos[contato.getPosicao() - 1] = contato;
+		contatos[posicao - 1] = new Contato(posicao, nome, sobrenome, telefone, nivelAmizade);
 		System.out.println("CADASTRO REALIZADO!\n");
 	}
 	
@@ -78,6 +78,7 @@ public class Agenda {
 	 * @param agenda : recebe um objeto de um tipo mais geral.
 	 * @return : um boolean que representa a igualdade entre duas agendas. 
 	 */
+	@Override
 	public boolean equals(Object agenda) {
 		return this.contatos.equals(((Agenda) agenda).getContatos());
 	}

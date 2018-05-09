@@ -146,11 +146,23 @@ public class Contato {
 	}
 	
 	/**
+	 * Vincula um novo numero de telefone a um contato já existente, em caso de não existir retorna uma mensagem
+	 * de erro.
+	 */
+	public boolean insereContato(Telefone telefone) {
+		if(posicaoTelefone < 3) {
+			telefones[posicaoTelefone++] = telefone;
+			return true;
+		}
+		return false;
+	}
+	
+	/**
 	 * Sobrescreve o método equals. 
 	 * Verifica a igualdade de dois contatos a partir do nome.
 	 * 
 	 * @param contato : recebe um objeto de um tipo mais geral.
-	 * @return : um boolean que representa a igualdade entre dois contatos. 
+	 * @return : um boolean que representa a igualdade entre dois contatos. Dois contatos são iguais se possuem o mesmo nome. 
 	 */
 	@Override
 	public boolean equals(Object contato) {
@@ -158,7 +170,7 @@ public class Contato {
 	}
 	
 	/**
-	 * Representação String de um objeto Contato no formato: NOME SOBRENOME - TELEFONE
+	 * Representação String de um objeto Contato no formato: NOME SOBRENOME - [TELEFONES..] - NIVEL DE AMIZADE
 	 */
 	@Override
 	public String toString() {

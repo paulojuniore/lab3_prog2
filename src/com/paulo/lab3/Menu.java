@@ -41,8 +41,8 @@ public class Menu {
 					Telefone telefone = criaTelefone();
 					
 					try {
-						Contato contato = new Contato(pos, nome, sobrenome, telefone, nivelAmizade);
-						agenda.cadastrarContato(contato);
+						//Contato contato = new Contato(pos, nome, sobrenome, telefone, nivelAmizade);
+						agenda.cadastrarContato(pos, nome, sobrenome, telefone, nivelAmizade);
 					}
 					catch(ArrayIndexOutOfBoundsException e) {
 						System.out.println(e.getMessage());
@@ -55,6 +55,7 @@ public class Menu {
 					break;
 					
 				case(INSERIRNOVOTELEFONE):
+					inserirNovoContato();
 					break;
 					
 				case(EXIBIR):
@@ -79,6 +80,7 @@ public class Menu {
 	 */
 	public static String exibirMenu() {
 		System.out.println("(C)adastrar Contato");
+		System.out.println("(A)dicionar Contato");
 		System.out.println("(L)istar Contatos");
 		System.out.println("(E)xibir Contato");
 		System.out.println("(S)air\n");
@@ -87,19 +89,39 @@ public class Menu {
 	}
 	
 	/**
+	 * Método auxiliar da classe contato que possui as entradas de dados e tratamento de valores inválidos.
+	 * Insere um novo contato em uma posição já existente na agenda, caso a posição atual seja menor que 3.
+	 * 
+	 */
+	public static void inserirNovoContato() {
+		System.out.print("Contato> ");
+		int pos = Integer.parseInt(scan.nextLine());
+		if(agenda.getContatos()[pos-1] != null) {
+			Telefone telefone = criaTelefone();
+			if(agenda.getContatos()[pos-1].insereContato(telefone))
+				System.out.println("Atualização Realizada!\n");
+			else
+				System.out.println("Quantidade Máxima de Contatos Excedida!\n");
+		}
+		else {
+			System.out.println("Posição Inválida!\n");
+		}
+	}
+	
+	/**
 	 * Contém as entradas dos dados para o telefone, como código do país, ddd, número e tipo de contato.
 	 * 
 	 * @return : retorna um objeto do tipo Telefone para o seu chamador. 
 	 */
 	public static Telefone criaTelefone() {
-		System.out.println("---Telefone---");
+		System.out.println("\n--- TELEFONE ---");
 		System.out.print("Código do País: ");
 		String codigo = scan.nextLine();
 		System.out.print("DDD: ");
 		String ddd = scan.nextLine();
 		System.out.print("Número: ");
 		String numero = scan.nextLine();
-		System.out.println("Tipo (CELULAR, TRABALHO ou CASA): ");
+		System.out.print("Tipo (CELULAR, TRABALHO ou CASA): ");
 		String tipo = scan.nextLine();
 		
 		Telefone telefone = new Telefone(codigo, ddd, numero, tipo);
@@ -112,7 +134,7 @@ public class Menu {
 	 *
 	 */
 	public static void consultasPersonalizadas() {
-		System.out.println("--- MODOS DE EXIBIÇÃO ---");
+		System.out.println("\n--- MODOS DE EXIBIÇÃO ---");
 		System.out.println("(1) - Pelo nome.");
 		System.out.println("(2) - Pelo contato.");
 		System.out.println("(3) - Pelo nível de amizade.");

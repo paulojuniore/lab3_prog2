@@ -5,6 +5,7 @@ package com.paulo.lab3;
  * Todo telefone possui código do país, ddd, número e o tipo de telefone.
  * 
  * @author Paulo Mendes da Silva Júnior - 117210922
+ * 
  */
 public class Telefone {
 	
@@ -117,8 +118,9 @@ public class Telefone {
 	
 	/**
 	 * Retorna a representação String de um objeto do tipo telefone.
-	 * A saída atende ao seguinte formato: (CODIGO DDD NUMERO - TIPO)
+	 * A saída atende ao seguinte formato: (CODIGO DDD NUMERO)
 	 */
+	@Override
 	public String toString() {
 		return String.format("%s %s %s", getCodigoPais(), getDdd(), getNumero());
 	}
