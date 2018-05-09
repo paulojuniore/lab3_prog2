@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 /**
  * Representa um Contato que faz parte de uma Agenda.
+ * Todo contato possui uma posição, nome, sobrenome, um objeto Telefone, uma posição de telefone entre os 3
+ * telefones possíveis e um nível de amizade.
  * 
  * @author Paulo Mendes da Silva Júnior - 117210922
  *
@@ -41,11 +43,12 @@ public class Contato {
 	private int nivelAmizade;
 	
 	/**
-	 * Constrói um contato a partir do nome, sobrenome e telefone.
+	 * Constrói um contato a partir do nome, sobrenome, telefone e nível de amizade.
 	 * 
 	 * @param nome : nome do contato
 	 * @param sobrenome : sobrenome do contato
 	 * @param telefone : telefone do contato
+	 * @param nivelAmizade : inteiro entre 1 e 5, inclusive. que representa o nível de amizade de um contato.
 	 */
 	public Contato(int posicao, String nome, String sobrenome, Telefone telefone, int nivelAmizade) {
 		this.posicao = posicao;
@@ -146,8 +149,11 @@ public class Contato {
 	}
 	
 	/**
-	 * Vincula um novo numero de telefone a um contato já existente, em caso de não existir retorna uma mensagem
-	 * de erro.
+	 * Vincula um novo numero de telefone a um contato já existente.
+	 * 
+	 * @param telefone : representa um objeto Telefone que contém todas as informações de um contato.
+	 * 
+	 * @return : um boolean que representa o êxito ou não na operação.
 	 */
 	public boolean insereContato(Telefone telefone) {
 		if(posicaoTelefone < 3) {

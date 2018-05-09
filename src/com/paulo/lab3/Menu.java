@@ -27,8 +27,8 @@ public class Menu {
 			switch(valor) {
 				case(CADASTRAR):
 					System.out.print("Posição: ");
-					int pos = Integer.parseInt(scan.nextLine());
-					if(pos < 1 || pos > 100) {
+					int posicao = Integer.parseInt(scan.nextLine());
+					if(posicao < 1 || posicao > 100) {
 						System.out.println("POSIÇÃO INVÁLIDA!\n");
 						break;
 					}
@@ -36,13 +36,12 @@ public class Menu {
 					String nome = scan.nextLine();
 					System.out.print("Sobrenome: ");
 					String sobrenome = scan.nextLine();
-					System.out.println("Nível de Amizade: (1-Distante; 2-Colega; 3-Amigo; 4-Amigão; 5-Irmão) ");
+					System.out.print("Nível de Amizade: (1-Distante; 2-Colega; 3-Amigo; 4-Amigão; 5-Irmão) ");
 					int nivelAmizade = Integer.parseInt(scan.nextLine());
 					Telefone telefone = criaTelefone();
 					
 					try {
-						//Contato contato = new Contato(pos, nome, sobrenome, telefone, nivelAmizade);
-						agenda.cadastrarContato(pos, nome, sobrenome, telefone, nivelAmizade);
+						agenda.cadastrarContato(posicao, nome, sobrenome, telefone, nivelAmizade);
 					}
 					catch(ArrayIndexOutOfBoundsException e) {
 						System.out.println(e.getMessage());
@@ -199,7 +198,7 @@ public class Menu {
 						}	
 					}	
 				}
-				System.out.println("Número de contatos com o nível de amizade " + nivel + " é -> " + cont + "\n");
+				System.out.println("Número de contatos com o nível de amizade " + nivel + " é: " + cont + "\n");
 				break;
 				
 			case 5:

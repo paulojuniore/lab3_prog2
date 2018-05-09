@@ -35,22 +35,6 @@ public class AgendaTest {
 		a2 = new Agenda();
 		a2.cadastrarContato(50, "João", "Pedro", t1, 2);
 	}
-	
-	/**
-	 * Testa o cadastro de um contato em uma posição válida e vazia.
-	 */
-	@Test
-	public void testCadastrarContatoPosVazia() {
-		assertEquals(a1.cadastrarContato(66, "Jose", "Val", t2, 2),true);
-	}
-	
-	/**
-	 * Testa o cadastro de um contato em uma posição já ocupada.
-	 */
-	@Test
-	public void testCadastrarContatoPosExistente() {
-		assertEquals(a2.cadastrarContato(50, "Jose", "Val", t2, 2),true);
-	}
 
 //	@Test
 //	public void testAgenda() {
