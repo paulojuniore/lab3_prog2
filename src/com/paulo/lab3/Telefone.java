@@ -120,7 +120,7 @@ public class Telefone {
 	 * A saída atende ao seguinte formato: (CODIGO DDD NUMERO - TIPO)
 	 */
 	public String toString() {
-		return String.format("%s %d %s - TIPO: %s", getCodigoPais(), getDdd(), getNumero(), getTipo());
+		return String.format("%s %s %s", getCodigoPais(), getDdd(), getNumero());
 	}
 	
 }

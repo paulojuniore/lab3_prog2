@@ -1,5 +1,7 @@
 package com.paulo.lab3;
 
+import java.util.Arrays;
+
 /**
  * Representa um Contato que faz parte de uma Agenda.
  * 
@@ -26,7 +28,17 @@ public class Contato {
 	/**
 	 * Representa o telefone do contato na agenda.
 	 */
-	private String telefone;
+	private Telefone[] telefones = new Telefone[3];
+	
+	/**
+	 * Representa a posição atual do telefone
+	 */
+	private int posicaoTelefone = 1; 
+	
+	/**
+	 * Representa o nível de Amizade do telefone (1-Distante; 2-Colega; 3-Amigo; 4-Amigão; 5-Irmão)
+	 */
+	private int nivelAmizade;
 	
 	/**
 	 * Constrói um contato a partir do nome, sobrenome e telefone.
@@ -35,11 +47,12 @@ public class Contato {
 	 * @param sobrenome : sobrenome do contato
 	 * @param telefone : telefone do contato
 	 */
-	public Contato(int posicao, String nome, String sobrenome, String telefone) {
+	public Contato(int posicao, String nome, String sobrenome, Telefone telefone, int nivelAmizade) {
 		this.posicao = posicao;
 		this.nome = nome;
 		this.sobrenome = sobrenome;
-		this.telefone = telefone;
+		this.telefones[0] = telefone;
+		this.nivelAmizade = nivelAmizade;
 	}
 	
 	/**
@@ -101,22 +114,40 @@ public class Contato {
 	 * 
 	 * @return : o telefone do contato.
 	 */
-	public String getTelefone() {
-		return telefone;
+	public Telefone getTelefone(int posicao) {
+		return telefones[posicao];
 	}
 	
 	/**
-	 * Altera o telefone do contato.
+	 * Retorna o nivel de amizade do contato. de 1 a 5.
 	 * 
-	 * @param telefone : telefone do contato.
+	 * @return : o nivel de amizade.
 	 */
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
+	public int getNivelAmizade() {
+		return nivelAmizade;
+	}
+	
+	/**
+	 * retorna o nível de amizade do contato.
+	 * 
+	 * @param nivelAmizade : representa o nível de amizade, inteiro entre 1 e 5, inclusive.
+	 * 
+	 * @return : Retorna uma String do nivel de amizade. 
+	 */
+	private static String tipoNivelAmizade(int nivelAmizade) {
+		switch(nivelAmizade) {
+			case 1: return "Distante";
+			case 2: return "Colega";
+			case 3: return "Amigo";
+			case 4: return "Amigão";
+			case 5: return "Irmão";
+			default: return "";
+		}
 	}
 	
 	/**
 	 * Sobrescreve o método equals. 
-	 * Verifica a igualdade de dois contatos.
+	 * Verifica a igualdade de dois contatos a partir do nome.
 	 * 
 	 * @param contato : recebe um objeto de um tipo mais geral.
 	 * @return : um boolean que representa a igualdade entre dois contatos. 
@@ -129,8 +160,10 @@ public class Contato {
 	/**
 	 * Representação String de um objeto Contato no formato: NOME SOBRENOME - TELEFONE
 	 */
+	@Override
 	public String toString() {
-		return String.format("%s %s - %s" + System.lineSeparator(), nome, sobrenome, telefone);
+		return String.format("%s %s - %s - Tipo de Amizade: %s%n", this.nome, this.sobrenome, Arrays.toString(telefones),
+				tipoNivelAmizade(nivelAmizade));
 	}
 	
 }

@@ -31,7 +31,7 @@ public class Agenda {
 	}
 	
 	/**
-	 * NÃ£o possui valor de retorno.
+	 * Não possui valor de retorno.
 	 * 
 	 * Cadastra um novo contato, todo contato possui uma posição, nome, sobrenome e telefone
 	 * @param contato : representa um contato que contém nome, sobrenome e telefone.
