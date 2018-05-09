@@ -2,7 +2,7 @@ package com.paulo.lab3;
 import java.util.Scanner;
 
 /**
- * Representa o Menu de um sistema para realizar operações em uma agenda de contatos.
+ * Representa um sistema de gerenciamento de contatos em uma Agenda.
  * 
  * @author Paulo Mendes da Silva Júnior - 117210922
  *
@@ -59,9 +59,6 @@ public class Menu {
 					
 				case(EXIBIR):
 					consultasPersonalizadas();
-					//System.out.print("Contato> ");
-					//pos = Integer.parseInt(scan.nextLine());
-					//agenda.exibirContato(pos);
 					break;
 					
 				case(SAIR):
@@ -76,9 +73,8 @@ public class Menu {
 	}
 	
 	/**
-	 * Exibe o menu com as opções de agenda.
+	 * Exibe o menu com as opções comuns de uma agenda.
 	 * 
-	 * @param scan : Objeto scan que faz a leitura de uma operação na agenda.
 	 * @return : Contém uma entrada de operação no final do método.
 	 */
 	public static String exibirMenu() {
@@ -90,6 +86,11 @@ public class Menu {
 		return scan.nextLine().toUpperCase();
 	}
 	
+	/**
+	 * Contém as entradas dos dados para o telefone, como código do país, ddd, número e tipo de contato.
+	 * 
+	 * @return : retorna um objeto do tipo Telefone para o seu chamador. 
+	 */
 	public static Telefone criaTelefone() {
 		System.out.println("---Telefone---");
 		System.out.print("Código do País: ");
@@ -105,9 +106,14 @@ public class Menu {
 		return telefone;
 	}
 	
+	/**
+	 * Menu que contém diversos tipos de consulta, para que o usuário escolha a que preferir.
+	 * As operações são realizadas interna/externamente através da composição de classes.
+	 *
+	 */
 	public static void consultasPersonalizadas() {
 		System.out.println("--- MODOS DE EXIBIÇÃO ---");
-		System.out.println("(1) - Por nome.");
+		System.out.println("(1) - Pelo nome.");
 		System.out.println("(2) - Pelo contato.");
 		System.out.println("(3) - Pelo nível de amizade.");
 		System.out.println("(4) - Quantidade de amigos com determinado nível de amizade.");
@@ -134,11 +140,63 @@ public class Menu {
 					System.out.println("Nenhum contato foi encontrado.");
 				}
 				System.out.println();
+				break;
 			
 			case 2:
 				System.out.print("Posição> ");
 				int pos = Integer.parseInt(scan.nextLine());
 				agenda.exibirContato(pos);
+				break;
+				
+			case 3:
+				System.out.print("Nível de Amizade> ");
+				int nivel = scan.nextInt();
+				cont = 0;
+				for (int i = 0; i < agenda.getContatos().length; i++) {
+					if(agenda.getContatos()[i] != null) {
+						if(agenda.getContatos()[i].getNivelAmizade() == nivel) {
+							System.out.print(agenda.getContatos()[i].toString());
+							cont++;
+						}	
+					}	
+				}
+				if(cont == 0) {
+					System.out.println("Nenhum contato foi encontrado.");
+				}
+				System.out.println();
+				break;
+			
+			case 4:
+				System.out.println("Nível de Amizade:> ");
+				nivel = scan.nextInt();
+				cont = 0;
+				for (int i = 0; i < agenda.getContatos().length; i++) {
+					if(agenda.getContatos()[i] != null) {
+						if(agenda.getContatos()[i].getNivelAmizade() == nivel) {
+							cont++;
+						}	
+					}	
+				}
+				System.out.println("Número de contatos com o nível de amizade " + nivel + " é -> " + cont + "\n");
+				break;
+				
+			case 5:
+				int soma = 0, qtd_contatos = 0;
+				for (int i = 0; i < agenda.getContatos().length; i++) {
+					if(agenda.getContatos()[i] != null) {
+						soma += agenda.getContatos()[i].getNivelAmizade();
+						qtd_contatos++;
+					}	
+				}
+				if(qtd_contatos != 0)
+					System.out.println("A média de amizade da agenda é: " + (soma / qtd_contatos) + "\n");
+				else
+					System.out.println("A agenda está vazia!\n");
+				break;
+			
+			default:
+				System.out.println("Comando Inválido!\n");
+				
 		}
 	}
 

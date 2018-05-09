@@ -162,7 +162,7 @@ public class Contato {
 	 */
 	@Override
 	public String toString() {
-		return String.format("%s %s - %s - Tipo de Amizade: %s%n", this.nome, this.sobrenome, Arrays.toString(telefones),
+		return String.format("%s %s - %s - Tipo de Amizade: %s" + System.lineSeparator(), this.nome, this.sobrenome, Arrays.toString(telefones),
 				tipoNivelAmizade(nivelAmizade));
 	}
 	
