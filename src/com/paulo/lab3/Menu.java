@@ -69,22 +69,29 @@ public class Menu {
 	}
 	
 	public static void cadastrarContato() {
+		int posicao;
 		System.out.print("Posição: ");
-		int posicao = Integer.parseInt(scan.nextLine());
-
+		try {
+			posicao = Integer.parseInt(scan.nextLine());
+		}
+		catch(NumberFormatException n) {
+			System.out.println("A posição não foi digitada!\n");
+			return;
+		}
+		
 		System.out.print("Nome: ");
 		String nome = scan.nextLine();
 		System.out.print("Sobrenome: ");
 		String sobrenome = scan.nextLine();
 		System.out.print("Nível de Amizade: (1-Distante; 2-Colega; 3-Amigo; 4-Amigão; 5-Irmão) ");
 		int nivelAmizade = Integer.parseInt(scan.nextLine());
-		Telefone telefone = criaTelefone();
+		Telefone telefone = null;
 		
 		try {
+			telefone = criaTelefone();
 			agenda.cadastrarContato(posicao, nome, sobrenome, telefone, nivelAmizade);
-		}
-		catch(ArrayIndexOutOfBoundsException e) {
-			System.out.println(e.getMessage());
+		} catch (Exception e1) {
+			System.out.println(e1.getMessage());
 		}
 	}
 	
@@ -97,7 +104,12 @@ public class Menu {
 		System.out.print("Contato> ");
 		int pos = Integer.parseInt(scan.nextLine());
 		if(agenda.getContatos()[pos-1] != null) {
-			Telefone telefone = criaTelefone();
+			Telefone telefone = null;
+			try {
+				telefone = criaTelefone();
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
 			if(agenda.getContatos()[pos-1].insereContato(telefone))
 				System.out.println("Atualização Realizada!\n");
 			else
@@ -113,7 +125,7 @@ public class Menu {
 	 * 
 	 * @return : retorna um objeto do tipo Telefone para o seu chamador. 
 	 */
-	public static Telefone criaTelefone() {
+	public static Telefone criaTelefone() throws Exception {
 		System.out.println("\n--- TELEFONE ---");
 		System.out.print("Código do País: ");
 		String codigo = scan.nextLine();

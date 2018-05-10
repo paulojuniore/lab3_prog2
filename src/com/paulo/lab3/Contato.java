@@ -4,16 +4,16 @@ import java.util.Arrays;
 
 /**
  * Representa um Contato que faz parte de uma Agenda.
- * Todo contato possui uma posição, nome, sobrenome, um objeto Telefone, uma posição de telefone entre os 3
- * telefones possíveis e um nível de amizade.
+ * Todo contato possui uma posiï¿½ï¿½o, nome, sobrenome, um objeto Telefone, uma posiï¿½ï¿½o de telefone entre os 3
+ * telefones possï¿½veis e um nï¿½vel de amizade.
  * 
- * @author Paulo Mendes da Silva Júnior - 117210922
+ * @author Paulo Mendes da Silva Jï¿½nior - 117210922
  *
  */
 public class Contato {
 		
 	/**
-	 * Representa a posição do contato na agenda.
+	 * Representa a posiï¿½ï¿½o do contato na agenda.
 	 */
 	private int posicao;
 	
@@ -33,39 +33,39 @@ public class Contato {
 	private Telefone[] telefones = new Telefone[3];
 	
 	/**
-	 * Representa a posição atual do telefone
+	 * Representa a posiï¿½ï¿½o atual do telefone
 	 */
 	private int posicaoTelefone = 1; 
 	
 	/**
-	 * Representa o nível de Amizade do telefone (1-Distante; 2-Colega; 3-Amigo; 4-Amigão; 5-Irmão)
+	 * Representa o nï¿½vel de Amizade do telefone (1-Distante; 2-Colega; 3-Amigo; 4-Amigï¿½o; 5-Irmï¿½o)
 	 */
 	private int nivelAmizade;
 	
 	/**
-	 * Constrói um contato a partir da posição, nome, sobrenome, telefone e nível de amizade.
+	 * Constrï¿½i um contato a partir da posiï¿½ï¿½o, nome, sobrenome, telefone e nï¿½vel de amizade.
 	 * 
-	 * @param posicao : indica a posição do contato na agenda.
+	 * @param posicao : indica a posiï¿½ï¿½o do contato na agenda.
 	 * @param nome : nome do contato
 	 * @param sobrenome : sobrenome do contato
 	 * @param telefone : telefone do contato
-	 * @param nivelAmizade : inteiro entre 1 e 5, inclusive. que representa o nível de amizade de um contato.
+	 * @param nivelAmizade : inteiro entre 1 e 5, inclusive. que representa o nï¿½vel de amizade de um contato.
 	 */
 	public Contato(int posicao, String nome, String sobrenome, Telefone telefone, int nivelAmizade) {
 		if(nome == null || sobrenome == null || telefone == null)
 			throw new NullPointerException();
 			
 		if(nome.trim().isEmpty())
-			throw new IllegalArgumentException("Nome inválido.");
+			throw new IllegalArgumentException("Nome invÃ¡lido.\n");
 			
 		if(sobrenome.trim().isEmpty())
-			throw new IllegalArgumentException("Sobrenome inválido.");
+			throw new IllegalArgumentException("Sobrenome invÃ¡lido.\n");
 			
 		if(telefone.getNumero().trim().isEmpty())
-			throw new IllegalArgumentException("Telefone inválido.");
+			throw new IllegalArgumentException("Telefone invÃ¡lido.\n");
 			
 		if(nivelAmizade < 1 || nivelAmizade > 5)
-			throw new IllegalArgumentException("Nível de amizade inválido.");
+			throw new IllegalArgumentException("NÃ­vel de amizade invÃ¡lido.\n");
 		
 		this.posicao = posicao;
 		this.nome = nome;
@@ -75,18 +75,18 @@ public class Contato {
 	}
 	
 	/**
-	 * Retorna a posição de um contato.
+	 * Retorna a posiï¿½ï¿½o de um contato.
 	 * 
-	 * @return : a posição de um contato.
+	 * @return : a posiï¿½ï¿½o de um contato.
 	 */
 	public int getPosicao() {
 		return posicao;
 	}
 	
 	/**
-	 * Altera a posição de um contato.
+	 * Altera a posiï¿½ï¿½o de um contato.
 	 * 
-	 * @param posicao : a posição de um contato na agenda.
+	 * @param posicao : a posiï¿½ï¿½o de um contato na agenda.
 	 */
 	public void setPosicao(int posicao) {
 		this.posicao = posicao;
@@ -147,9 +147,9 @@ public class Contato {
 	}
 	
 	/**
-	 * retorna o nível de amizade do contato.
+	 * retorna o nï¿½vel de amizade do contato.
 	 * 
-	 * @param nivelAmizade : representa o nível de amizade, inteiro entre 1 e 5, inclusive.
+	 * @param nivelAmizade : representa o nï¿½vel de amizade, inteiro entre 1 e 5, inclusive.
 	 * 
 	 * @return : Retorna uma String do nivel de amizade. 
 	 */
@@ -158,18 +158,18 @@ public class Contato {
 			case 1: return "Distante";
 			case 2: return "Colega";
 			case 3: return "Amigo";
-			case 4: return "Amigão";
-			case 5: return "Irmão";
+			case 4: return "Amigï¿½o";
+			case 5: return "Irmï¿½o";
 			default: return "";
 		}
 	}
 	
 	/**
-	 * Vincula um novo numero de telefone a um contato já existente.
+	 * Vincula um novo numero de telefone a um contato jï¿½ existente.
 	 * 
-	 * @param telefone : representa um objeto Telefone que contém todas as informações de um contato.
+	 * @param telefone : representa um objeto Telefone que contï¿½m todas as informaï¿½ï¿½es de um contato.
 	 * 
-	 * @return : um boolean que representa o êxito ou não na operação.
+	 * @return : um boolean que representa o ï¿½xito ou nï¿½o na operaï¿½ï¿½o.
 	 */
 	public boolean insereContato(Telefone telefone) {
 		if(posicaoTelefone < 3) {
@@ -180,11 +180,11 @@ public class Contato {
 	}
 	
 	/**
-	 * Sobrescreve o método equals. 
+	 * Sobrescreve o mï¿½todo equals. 
 	 * Verifica a igualdade de dois contatos a partir do nome.
 	 * 
 	 * @param contato : recebe um objeto de um tipo mais geral.
-	 * @return : um boolean que representa a igualdade entre dois contatos. Dois contatos são iguais se possuem o mesmo nome. 
+	 * @return : um boolean que representa a igualdade entre dois contatos. Dois contatos sï¿½o iguais se possuem o mesmo nome. 
 	 */
 	@Override
 	public boolean equals(Object contato) {
@@ -192,7 +192,7 @@ public class Contato {
 	}
 	
 	/**
-	 * Representação String de um objeto Contato no formato: NOME SOBRENOME - [TELEFONES..] - NIVEL DE AMIZADE
+	 * Representaï¿½ï¿½o String de um objeto Contato no formato: NOME SOBRENOME - [TELEFONES..] - NIVEL DE AMIZADE
 	 */
 	@Override
 	public String toString() {

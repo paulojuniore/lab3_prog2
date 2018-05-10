@@ -1,26 +1,26 @@
 package com.paulo.lab3;
 
 /**
- * Representa os números de telefone de um contato.
- * Todo telefone possui código do país, ddd, número e o tipo de telefone.
+ * Representa os nÃºmeros de telefone de um contato.
+ * Todo telefone possui cÃ³digo do paÃ­s, ddd, nÃºmero e o tipo de telefone.
  * 
- * @author Paulo Mendes da Silva Júnior - 117210922
+ * @author Paulo Mendes da Silva JÃºnior - 117210922
  * 
  */
 public class Telefone {
 	
 	/**
-	 * Representa o código do país do número de telefone
+	 * Representa o cÃ³digo do paÃ­s do nÃºmero de telefone
 	 */
 	private String codigoPais;
 	
 	/**
-	 * Representa o ddd do estado do número de telefone ex: (83)
+	 * Representa o ddd do estado do nÃºmero de telefone ex: (83)
 	 */
 	private String ddd;
 	
 	/**
-	 * Representa o número de telefone ex: (8845-9039)
+	 * Representa o nÃºmero de telefone ex: (8845-9039)
 	 */
 	private String numero;
 	
@@ -30,14 +30,29 @@ public class Telefone {
 	private String tipo;
 	
 	/**
-	 * Constrói um telefone a partir do código do país, ddd, número de telefone e tipo.
+	 * ConstrÃ³i um telefone a partir do cÃ³digo do paÃ­s, ddd, nÃºmero de telefone e tipo.
 	 * 
-	 * @param codigoPais : código do país ex: (+55)
+	 * @param codigoPais : cÃ³digo do paÃ­s ex: (+55)
 	 * @param ddd : ex: (083)
 	 * @param numero : ex: 98845-9039
 	 * @param tipo : CELULAR, TRABALHO ou CASA 
 	 */
 	public Telefone(String codigoPais, String ddd, String numero, String tipo) {
+		if(codigoPais == null || ddd == null || numero == null || tipo == null)
+			throw new NullPointerException();
+		
+		if(codigoPais.trim().isEmpty())
+			throw new IllegalArgumentException("CÃ³digo do paÃ­s invÃ¡lido!");
+		
+		if(ddd.trim().isEmpty())
+			throw new IllegalArgumentException("DDD invÃ¡lido!");
+		
+		if(numero.trim().isEmpty())
+			throw new IllegalArgumentException("NÃºmero de telefone invÃ¡lido!");
+		
+		if(tipo.trim().isEmpty())
+			throw new IllegalArgumentException("Tipo de telefone invÃ¡lido!");
+		
 		this.setCodigoPais(codigoPais);
 		this.setDdd(ddd);
 		this.setNumero(numero);
@@ -45,7 +60,7 @@ public class Telefone {
 	}
 
 	/**
-	 * Retorna o código do país.
+	 * Retorna o cÃ³digo do paÃ­s.
 	 * 
 	 * @return
 	 */
@@ -54,7 +69,7 @@ public class Telefone {
 	}
 
 	/**
-	 * Altera o código do país a partir do novo código.
+	 * Altera o cÃ³digo do paÃ­s a partir do novo cÃ³digo.
 	 * 
 	 * @param codigoPais
 	 */
@@ -81,7 +96,7 @@ public class Telefone {
 	}
 
 	/**
-	 * Retorna o número de telefone.
+	 * Retorna o nÃºmero de telefone.
 	 * 
 	 * @return
 	 */
@@ -90,7 +105,7 @@ public class Telefone {
 	}
 
 	/**
-	 * Altera o número de telefone a partir da passagem do novo número.
+	 * Altera o nÃºmero de telefone a partir da passagem do novo nÃºmero.
 	 * 
 	 * @param numero
 	 */
@@ -117,8 +132,8 @@ public class Telefone {
 	}
 	
 	/**
-	 * Retorna a representação String de um objeto do tipo telefone.
-	 * A saída atende ao seguinte formato: (CODIGO DDD NUMERO)
+	 * Retorna a representaÃ§Ã£o String de um objeto do tipo telefone.
+	 * A saÃ­da atende ao seguinte formato: (CODIGO DDD NUMERO)
 	 */
 	@Override
 	public String toString() {

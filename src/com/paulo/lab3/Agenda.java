@@ -37,7 +37,7 @@ public class Agenda {
 	 * @param contato : representa um contato que contém nome, sobrenome e telefone.
 	 * @param pos : representa a posição do contato na agenda.
 	 */
-	public void cadastrarContato(int posicao, String nome, String sobrenome, Telefone telefone, int nivelAmizade) {
+	public void cadastrarContato(int posicao, String nome, String sobrenome, Telefone telefone, int nivelAmizade) throws NumberFormatException, IllegalArgumentException, NullPointerException {
 		if(posicao < 1 || posicao > 100) {
 			throw new ArrayIndexOutOfBoundsException("POSIÇÃO INVÁLIDA!\n");
 		}
