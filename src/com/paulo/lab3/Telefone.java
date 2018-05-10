@@ -42,16 +42,16 @@ public class Telefone {
 			throw new NullPointerException();
 		
 		if(codigoPais.trim().isEmpty())
-			throw new IllegalArgumentException("Código do país inválido!");
+			throw new IllegalArgumentException("Código do país inválido!\n");
 		
 		if(ddd.trim().isEmpty())
-			throw new IllegalArgumentException("DDD inválido!");
+			throw new IllegalArgumentException("DDD inválido!\n");
 		
 		if(numero.trim().isEmpty())
-			throw new IllegalArgumentException("Número de telefone inválido!");
+			throw new IllegalArgumentException("Número de telefone inválido!\n");
 		
 		if(tipo.trim().isEmpty())
-			throw new IllegalArgumentException("Tipo de telefone inválido!");
+			throw new IllegalArgumentException("Tipo de telefone inválido!\n");
 		
 		this.setCodigoPais(codigoPais);
 		this.setDdd(ddd);

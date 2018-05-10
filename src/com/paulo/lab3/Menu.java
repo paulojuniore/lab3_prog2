@@ -11,7 +11,7 @@ public class Menu {
 	
 	private static final String CADASTRAR = "C";
 	private static final String LISTAR = "L";
-	private static final String INSERIRNOVOTELEFONE = "I";
+	private static final String ADICIONARTELEFONE = "A";
 	private static final String EXIBIR = "E";
 	private static final String SAIR = "S";
 	
@@ -33,7 +33,7 @@ public class Menu {
 					agenda.listarContatos();
 					break;
 					
-				case(INSERIRNOVOTELEFONE):
+				case(ADICIONARTELEFONE):
 					inserirNovoContato();
 					break;
 					
@@ -70,23 +70,28 @@ public class Menu {
 	
 	public static void cadastrarContato() {
 		int posicao;
-		System.out.print("Posição: ");
+		System.out.print("Posição: ");	
 		try {
 			posicao = Integer.parseInt(scan.nextLine());
 		}
 		catch(NumberFormatException n) {
 			System.out.println("A posição não foi digitada!\n");
 			return;
-		}
-		
+		}		
 		System.out.print("Nome: ");
 		String nome = scan.nextLine();
 		System.out.print("Sobrenome: ");
 		String sobrenome = scan.nextLine();
 		System.out.print("Nível de Amizade: (1-Distante; 2-Colega; 3-Amigo; 4-Amigão; 5-Irmão) ");
-		int nivelAmizade = Integer.parseInt(scan.nextLine());
-		Telefone telefone = null;
+		int nivelAmizade = 0;
+		try {
+			nivelAmizade = Integer.parseInt(scan.nextLine());
+		}	
+		catch(NumberFormatException n1) {
+			System.out.println("O nível de amizade é inválido!\n");
+		}
 		
+		Telefone telefone = null;
 		try {
 			telefone = criaTelefone();
 			agenda.cadastrarContato(posicao, nome, sobrenome, telefone, nivelAmizade);
@@ -109,6 +114,7 @@ public class Menu {
 				telefone = criaTelefone();
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
+				return;
 			}
 			if(agenda.getContatos()[pos-1].insereContato(telefone))
 				System.out.println("Atualização Realizada!\n");

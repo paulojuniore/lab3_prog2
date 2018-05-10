@@ -4,16 +4,16 @@ import java.util.Arrays;
 
 /**
  * Representa um Contato que faz parte de uma Agenda.
- * Todo contato possui uma posi��o, nome, sobrenome, um objeto Telefone, uma posi��o de telefone entre os 3
- * telefones poss�veis e um n�vel de amizade.
+ * Todo contato possui uma posição, nome, sobrenome, um objeto Telefone, uma posição de telefone entre os 3
+ * telefones possíveis e um nível de amizade.
  * 
- * @author Paulo Mendes da Silva J�nior - 117210922
+ * @author Paulo Mendes da Silva Júnior - 117210922
  *
  */
 public class Contato {
 		
 	/**
-	 * Representa a posi��o do contato na agenda.
+	 * Representa a posição do contato na agenda.
 	 */
 	private int posicao;
 	
@@ -33,23 +33,23 @@ public class Contato {
 	private Telefone[] telefones = new Telefone[3];
 	
 	/**
-	 * Representa a posi��o atual do telefone
+	 * Representa a posição atual do telefone
 	 */
 	private int posicaoTelefone = 1; 
 	
 	/**
-	 * Representa o n�vel de Amizade do telefone (1-Distante; 2-Colega; 3-Amigo; 4-Amig�o; 5-Irm�o)
+	 * Representa o nível de Amizade do telefone (1-Distante; 2-Colega; 3-Amigo; 4-Amigão; 5-Irmão)
 	 */
 	private int nivelAmizade;
 	
 	/**
-	 * Constr�i um contato a partir da posi��o, nome, sobrenome, telefone e n�vel de amizade.
+	 * Constrói um contato a partir da posição, nome, sobrenome, telefone e nível de amizade.
 	 * 
-	 * @param posicao : indica a posi��o do contato na agenda.
+	 * @param posicao : indica a posição do contato na agenda.
 	 * @param nome : nome do contato
 	 * @param sobrenome : sobrenome do contato
 	 * @param telefone : telefone do contato
-	 * @param nivelAmizade : inteiro entre 1 e 5, inclusive. que representa o n�vel de amizade de um contato.
+	 * @param nivelAmizade : inteiro entre 1 e 5, inclusive. que representa o nível de amizade de um contato.
 	 */
 	public Contato(int posicao, String nome, String sobrenome, Telefone telefone, int nivelAmizade) {
 		if(nome == null || sobrenome == null || telefone == null)
@@ -75,18 +75,18 @@ public class Contato {
 	}
 	
 	/**
-	 * Retorna a posi��o de um contato.
+	 * Retorna a posição de um contato.
 	 * 
-	 * @return : a posi��o de um contato.
+	 * @return : a posição de um contato.
 	 */
 	public int getPosicao() {
 		return posicao;
 	}
 	
 	/**
-	 * Altera a posi��o de um contato.
+	 * Altera a posição de um contato.
 	 * 
-	 * @param posicao : a posi��o de um contato na agenda.
+	 * @param posicao : a posição de um contato na agenda.
 	 */
 	public void setPosicao(int posicao) {
 		this.posicao = posicao;
@@ -147,9 +147,9 @@ public class Contato {
 	}
 	
 	/**
-	 * retorna o n�vel de amizade do contato.
+	 * retorna o nível de amizade do contato.
 	 * 
-	 * @param nivelAmizade : representa o n�vel de amizade, inteiro entre 1 e 5, inclusive.
+	 * @param nivelAmizade : representa o nível de amizade, inteiro entre 1 e 5, inclusive.
 	 * 
 	 * @return : Retorna uma String do nivel de amizade. 
 	 */
@@ -158,18 +158,18 @@ public class Contato {
 			case 1: return "Distante";
 			case 2: return "Colega";
 			case 3: return "Amigo";
-			case 4: return "Amig�o";
-			case 5: return "Irm�o";
+			case 4: return "Amigão";
+			case 5: return "Irmão";
 			default: return "";
 		}
 	}
 	
 	/**
-	 * Vincula um novo numero de telefone a um contato j� existente.
+	 * Vincula um novo numero de telefone a um contato já existente.
 	 * 
-	 * @param telefone : representa um objeto Telefone que cont�m todas as informa��es de um contato.
+	 * @param telefone : representa um objeto Telefone que contém todas as informações de um contato.
 	 * 
-	 * @return : um boolean que representa o �xito ou n�o na opera��o.
+	 * @return : um boolean que representa o êxito ou não na operação.
 	 */
 	public boolean insereContato(Telefone telefone) {
 		if(posicaoTelefone < 3) {
@@ -180,11 +180,11 @@ public class Contato {
 	}
 	
 	/**
-	 * Sobrescreve o m�todo equals. 
+	 * Sobrescreve o método equals. 
 	 * Verifica a igualdade de dois contatos a partir do nome.
 	 * 
 	 * @param contato : recebe um objeto de um tipo mais geral.
-	 * @return : um boolean que representa a igualdade entre dois contatos. Dois contatos s�o iguais se possuem o mesmo nome. 
+	 * @return : um boolean que representa a igualdade entre dois contatos. Dois contatos são iguais se possuem o mesmo nome. 
 	 */
 	@Override
 	public boolean equals(Object contato) {
@@ -192,7 +192,7 @@ public class Contato {
 	}
 	
 	/**
-	 * Representa��o String de um objeto Contato no formato: NOME SOBRENOME - [TELEFONES..] - NIVEL DE AMIZADE
+	 * Representação String de um objeto Contato no formato: NOME SOBRENOME - [TELEFONES..] - NIVEL DE AMIZADE
 	 */
 	@Override
 	public String toString() {
