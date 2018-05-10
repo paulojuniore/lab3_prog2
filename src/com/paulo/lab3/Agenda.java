@@ -39,27 +39,23 @@ public class Agenda {
 	 */
 	public void cadastrarContato(int posicao, String nome, String sobrenome, Telefone telefone, int nivelAmizade) {
 		if(posicao < 1 || posicao > 100) {
-			throw new ArrayIndexOutOfBoundsException("POSIÇÃO INVÁLIDA!");
+			throw new ArrayIndexOutOfBoundsException("POSIÇÃO INVÁLIDA!\n");
 		}
 		contatos[posicao - 1] = new Contato(posicao, nome, sobrenome, telefone, nivelAmizade);
 		System.out.println("CADASTRO REALIZADO!\n");
 	}
 	
 	/**
-	 * Não possui valor de retorno.
+	 * Exibe um contato já existente.
 	 * 
-	 * Exibe um contato já existente
+	 * @return : String que representa o contato buscado.
 	 */
-	public void exibirContato(int pos) {
-		if(contatos[pos-1] == null || pos < 1 || pos > 100)
-			System.out.println("POSIÇÃO INVÁLIDA!\n");
-		else {
-			System.out.println(contatos[pos-1].toString());
-		}
+	public String exibirContato(int pos) {
+		return contatos[pos-1].toString(); 
 	}
 	
 	/**
-	 * NÃ£o possui valor de retorno.
+	 * Não possui valor de retorno.
 	 * 
 	 * Exibe uma lista dos contatos já cadastrados até o momento.
 	 */

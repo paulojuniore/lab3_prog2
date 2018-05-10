@@ -43,14 +43,30 @@ public class Contato {
 	private int nivelAmizade;
 	
 	/**
-	 * Constrói um contato a partir do nome, sobrenome, telefone e nível de amizade.
+	 * Constrói um contato a partir da posição, nome, sobrenome, telefone e nível de amizade.
 	 * 
+	 * @param posicao : indica a posição do contato na agenda.
 	 * @param nome : nome do contato
 	 * @param sobrenome : sobrenome do contato
 	 * @param telefone : telefone do contato
 	 * @param nivelAmizade : inteiro entre 1 e 5, inclusive. que representa o nível de amizade de um contato.
 	 */
 	public Contato(int posicao, String nome, String sobrenome, Telefone telefone, int nivelAmizade) {
+		if(nome == null || sobrenome == null || telefone == null)
+			throw new NullPointerException();
+			
+		if(nome.trim().isEmpty())
+			throw new IllegalArgumentException("Nome inválido.");
+			
+		if(sobrenome.trim().isEmpty())
+			throw new IllegalArgumentException("Sobrenome inválido.");
+			
+		if(telefone.getNumero().trim().isEmpty())
+			throw new IllegalArgumentException("Telefone inválido.");
+			
+		if(nivelAmizade < 1 || nivelAmizade > 5)
+			throw new IllegalArgumentException("Nível de amizade inválido.");
+		
 		this.posicao = posicao;
 		this.nome = nome;
 		this.sobrenome = sobrenome;

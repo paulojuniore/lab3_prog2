@@ -26,27 +26,7 @@ public class Menu {
 			String valor = exibirMenu();
 			switch(valor) {
 				case(CADASTRAR):
-					System.out.print("Posição: ");
-					int posicao = Integer.parseInt(scan.nextLine());
-					if(posicao < 1 || posicao > 100) {
-						System.out.println("POSIÇÃO INVÁLIDA!\n");
-						break;
-					}
-					System.out.print("Nome: ");
-					String nome = scan.nextLine();
-					System.out.print("Sobrenome: ");
-					String sobrenome = scan.nextLine();
-					System.out.print("Nível de Amizade: (1-Distante; 2-Colega; 3-Amigo; 4-Amigão; 5-Irmão) ");
-					int nivelAmizade = Integer.parseInt(scan.nextLine());
-					Telefone telefone = criaTelefone();
-					
-					try {
-						agenda.cadastrarContato(posicao, nome, sobrenome, telefone, nivelAmizade);
-					}
-					catch(ArrayIndexOutOfBoundsException e) {
-						System.out.println(e.getMessage());
-					}
-					
+					cadastrarContato();
 					break;
 					
 				case(LISTAR):
@@ -72,6 +52,7 @@ public class Menu {
 		}
 	}
 	
+	
 	/**
 	 * Exibe o menu com as opções comuns de uma agenda.
 	 * 
@@ -85,6 +66,26 @@ public class Menu {
 		System.out.println("(S)air\n");
 		System.out.print("Opção> ");
 		return scan.nextLine().toUpperCase();
+	}
+	
+	public static void cadastrarContato() {
+		System.out.print("Posição: ");
+		int posicao = Integer.parseInt(scan.nextLine());
+
+		System.out.print("Nome: ");
+		String nome = scan.nextLine();
+		System.out.print("Sobrenome: ");
+		String sobrenome = scan.nextLine();
+		System.out.print("Nível de Amizade: (1-Distante; 2-Colega; 3-Amigo; 4-Amigão; 5-Irmão) ");
+		int nivelAmizade = Integer.parseInt(scan.nextLine());
+		Telefone telefone = criaTelefone();
+		
+		try {
+			agenda.cadastrarContato(posicao, nome, sobrenome, telefone, nivelAmizade);
+		}
+		catch(ArrayIndexOutOfBoundsException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	/**
@@ -166,7 +167,10 @@ public class Menu {
 			case 2:
 				System.out.print("Posição> ");
 				int pos = Integer.parseInt(scan.nextLine());
-				agenda.exibirContato(pos);
+				if(pos >= 1 && pos <= 100 && agenda.getContatos()[pos-1] != null)
+					System.out.println(agenda.exibirContato(pos));
+				else
+					System.out.println("POSIÇÃO INVÁLIDA!\n");
 				break;
 				
 			case 3:
