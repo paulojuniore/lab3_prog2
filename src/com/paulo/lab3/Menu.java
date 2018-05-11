@@ -161,7 +161,14 @@ public class Menu {
 		System.out.println();
 		
 		System.out.print("Opção> ");
-		int op = Integer.parseInt(scan.nextLine());
+		int op = 0;
+		try {
+			op = Integer.parseInt(scan.nextLine());
+		}
+		catch(NumberFormatException e) {
+			System.out.println("Opção inválida!\n");
+			return;
+		}
 		
 		switch(op) {
 			case 1:
@@ -184,43 +191,58 @@ public class Menu {
 			
 			case 2:
 				System.out.print("Posição> ");
-				int pos = Integer.parseInt(scan.nextLine());
-				if(pos >= 1 && pos <= 100 && agenda.getContatos()[pos-1] != null)
-					System.out.println(agenda.exibirContato(pos));
-				else
-					System.out.println("POSIÇÃO INVÁLIDA!\n");
+				try {
+					int pos = Integer.parseInt(scan.nextLine());
+					if(pos >= 1 && pos <= 100 && agenda.getContatos()[pos-1] != null)
+						System.out.println(agenda.exibirContato(pos));
+					else
+						System.out.println("POSIÇÃO INVÁLIDA!\n");
+				}
+				catch(NumberFormatException e) {
+					System.out.println("Dado inválido!\n");
+				}
 				break;
 				
 			case 3:
 				System.out.print("Nível de Amizade> ");
-				int nivel = scan.nextInt();
-				cont = 0;
-				for (int i = 0; i < agenda.getContatos().length; i++) {
-					if(agenda.getContatos()[i] != null) {
-						if(agenda.getContatos()[i].getNivelAmizade() == nivel) {
-							System.out.print(agenda.getContatos()[i].toString());
-							cont++;
+				try {
+					int nivel = Integer.parseInt(scan.nextLine());
+					cont = 0;
+					for (int i = 0; i < agenda.getContatos().length; i++) {
+						if(agenda.getContatos()[i] != null) {
+							if(agenda.getContatos()[i].getNivelAmizade() == nivel) {
+								System.out.print(agenda.getContatos()[i].toString());
+								cont++;
+							}	
 						}	
-					}	
+					}
+					if(cont == 0) {
+						System.out.println("Nenhum contato foi encontrado.");
+					}
 				}
-				if(cont == 0) {
-					System.out.println("Nenhum contato foi encontrado.");
-				}
+				catch(NumberFormatException e) {
+					System.out.println("Dado inválido!");
+				}	
 				System.out.println();
 				break;
 			
 			case 4:
-				System.out.println("Nível de Amizade:> ");
-				nivel = scan.nextInt();
-				cont = 0;
-				for (int i = 0; i < agenda.getContatos().length; i++) {
-					if(agenda.getContatos()[i] != null) {
-						if(agenda.getContatos()[i].getNivelAmizade() == nivel) {
-							cont++;
+				System.out.print("Nível de Amizade> ");
+				try {
+					int nivel = Integer.parseInt(scan.nextLine());
+					cont = 0;
+					for (int i = 0; i < agenda.getContatos().length; i++) {
+						if(agenda.getContatos()[i] != null) {
+							if(agenda.getContatos()[i].getNivelAmizade() == nivel) {
+								cont++;
+							}	
 						}	
-					}	
+					}
+					System.out.println("Número de contatos com o nível de amizade " + nivel + " é: " + cont + "\n");
 				}
-				System.out.println("Número de contatos com o nível de amizade " + nivel + " é: " + cont + "\n");
+				catch(NumberFormatException e) {
+					System.out.println("Dado inválido!\n");
+				}				
 				break;
 				
 			case 5:

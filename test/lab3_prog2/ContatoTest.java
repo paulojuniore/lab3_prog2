@@ -11,7 +11,7 @@ import com.paulo.lab3.Telefone;
 /**
  * Classe de testes da classe Contato usando o JUnit.
  * 
- * @author Paulo Mendes da Silva Júnior - 117210922
+ * @author Paulo Mendes da Silva JÃºnior - 117210922
  *
  */
 
@@ -43,8 +43,8 @@ public class ContatoTest {
 	}
 	
 	/**
-	 * Testa o método equals para dois contatos.
-	 * Dois contatos são iguais se possuem o mesmo nome.
+	 * Testa o mÃ©todo equals para dois contatos.
+	 * Dois contatos sÃ£o iguais se possuem o mesmo nome.
 	 */
 	@Test
 	public void testEqualsObject() {
@@ -52,7 +52,7 @@ public class ContatoTest {
 	}
 	
 	/**
-	 * Testa a negação do método equals para dois contatos.
+	 * Testa a negativo do mÃ©todo equals para dois contatos.
 	 */
 	@Test
 	public void testNotEqualsObject() {
@@ -60,11 +60,11 @@ public class ContatoTest {
 	}
 
 	/**
-	 *  Testa o método toString da classe Contato.
+	 *  Testa o mÃ©todo toString da classe Contato.
 	 */
 	@Test
 	public void testToString() {
-		assertEquals("Paulo Felipe Silva - [+55 83 98845-9039, null, null] - Tipo de Amizade: Irmão" + System.lineSeparator(), c1.toString());
+		assertEquals("Paulo Felipe Silva - [+55 83 98845-9039, null, null] - Tipo de Amizade: IrmÃ£o" + System.lineSeparator(), c1.toString());
 		assertEquals("Paulo Junior - [+55 83 98726-3479, null, null] - Tipo de Amizade: Amigo" + System.lineSeparator(), c2.toString());
 	}
 

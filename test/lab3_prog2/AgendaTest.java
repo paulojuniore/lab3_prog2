@@ -1,9 +1,6 @@
 package lab3_prog2;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Before;
-import org.junit.Test;
 
 import com.paulo.lab3.Agenda;
 import com.paulo.lab3.Telefone;
@@ -11,7 +8,7 @@ import com.paulo.lab3.Telefone;
 /**
  * Classe de testes da classe Agenda usando o JUnit
  * 
- * @author Paulo Mendes da Silva Júnior - 117210922
+ * @author Paulo Mendes da Silva JÃºnior - 117210922
  *
  */
 
@@ -33,7 +30,7 @@ public class AgendaTest {
 	public void criaAgenda() {
 		a1 = new Agenda();
 		a2 = new Agenda();
-		a2.cadastrarContato(50, "João", "Pedro", t1, 2);
+		a2.cadastrarContato(50, "JoÃ£o", "Pedro", t1, 2);
 	}
 
 //	@Test
