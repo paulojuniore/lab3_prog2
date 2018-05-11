@@ -33,7 +33,7 @@ public class Contato {
 	private Telefone[] telefones = new Telefone[3];
 	
 	/**
-	 * Representa a posição atual do telefone
+	 * Representa a posição atual do telefone na agenda.
 	 */
 	private int posicaoTelefone = 1; 
 	

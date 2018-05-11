@@ -52,7 +52,7 @@ public class ContatoTest {
 	}
 	
 	/**
-	 * Testa a negativo do método equals para dois contatos.
+	 * Testa a negação do método equals para dois contatos.
 	 */
 	@Test
 	public void testNotEqualsObject() {

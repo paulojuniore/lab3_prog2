@@ -2,7 +2,9 @@ package com.paulo.lab3;
 import java.util.Scanner;
 
 /**
- * Representa um sistema de gerenciamento de contatos em uma Agenda.
+ * Representa um sistema de gerenciamento de contatos em uma Agenda, contém alguns métodos auxiliares
+ * que realizam as leituras de dados, tratamento de exceções, e assim os dados tratados são passados 
+ * para os métodos das classes auxiliares para concretizar a operação.
  * 
  * @author Paulo Mendes da Silva Júnior - 117210922
  *
@@ -30,7 +32,7 @@ public class Menu {
 					break;
 					
 				case(LISTAR):
-					agenda.listarContatos();
+					System.out.println(agenda.listarContatos());
 					break;
 					
 				case(ADICIONARTELEFONE):
@@ -54,7 +56,7 @@ public class Menu {
 	
 	
 	/**
-	 * Exibe o menu com as opções comuns de uma agenda.
+	 * Exibe o menu com as opções comuns em uma agenda.
 	 * 
 	 * @return : Contém uma entrada de operação no final do método.
 	 */
@@ -68,11 +70,20 @@ public class Menu {
 		return scan.nextLine().toUpperCase();
 	}
 	
+	/**
+	 * Cadastra um contato na agenda. Pode gerar exceções caso seja passado algum valor inválido.
+	 * Como por exemplo uma posição inexistente na agenda ou um nível de amizade inválido.
+	 * 
+	 */
 	public static void cadastrarContato() {
 		int posicao;
 		System.out.print("Posição: ");	
 		try {
 			posicao = Integer.parseInt(scan.nextLine());
+			if(posicao <= 0 || posicao > 100) {
+				System.out.println("POSIÇÃO INVÁLIDA!\n");
+				return;
+			}
 		}
 		catch(NumberFormatException n) {
 			System.out.println("A posição não foi digitada!\n");
@@ -89,6 +100,7 @@ public class Menu {
 		}	
 		catch(NumberFormatException n1) {
 			System.out.println("O nível de amizade é inválido!\n");
+			return;
 		}
 		
 		Telefone telefone = null;
@@ -138,6 +150,7 @@ public class Menu {
 	 * Contém as entradas dos dados para o telefone, como código do país, ddd, número e tipo de contato.
 	 * 
 	 * @return : retorna um objeto do tipo Telefone para o seu chamador. 
+	 * 
 	 */
 	public static Telefone criaTelefone() throws Exception {
 		System.out.println("\n--- TELEFONE ---");
@@ -148,7 +161,7 @@ public class Menu {
 		System.out.print("Número: ");
 		String numero = scan.nextLine();
 		System.out.print("Tipo (CELULAR, TRABALHO ou CASA): ");
-		String tipo = scan.nextLine();
+		String tipo = scan.nextLine().toUpperCase();
 		
 		Telefone telefone = new Telefone(codigo, ddd, numero, tipo);
 		return telefone;

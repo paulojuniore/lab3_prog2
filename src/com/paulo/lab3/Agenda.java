@@ -14,7 +14,6 @@ public class Agenda {
 	 */
 	private Contato[] contatos;
 	
-	
 	/**
 	 * Constrói uma Agenda, que inicializa um conjunto de 100 contatos com (null) 
 	 */
@@ -38,12 +37,13 @@ public class Agenda {
 	 * @param contato : representa um contato que contém nome, sobrenome e telefone.
 	 * @param pos : representa a posição do contato na agenda.
 	 */
-	public void cadastrarContato(int posicao, String nome, String sobrenome, Telefone telefone, int nivelAmizade) throws NumberFormatException, IllegalArgumentException, NullPointerException {
-		if(posicao < 1 || posicao > 100) {
-			throw new ArrayIndexOutOfBoundsException("POSIÇÃO INVÁLIDA!\n");
+	public boolean cadastrarContato(int posicao, String nome, String sobrenome, Telefone telefone, int nivelAmizade) throws NumberFormatException, IllegalArgumentException, NullPointerException {
+		if(posicao >= 1 && posicao <= 100) {
+			contatos[posicao - 1] = new Contato(posicao, nome, sobrenome, telefone, nivelAmizade);
+			System.out.println("CADASTRO REALIZADO!\n");
+			return true;
 		}
-		contatos[posicao - 1] = new Contato(posicao, nome, sobrenome, telefone, nivelAmizade);
-		System.out.println("CADASTRO REALIZADO!\n");
+		return false;
 	}
 	
 	/**
@@ -60,12 +60,14 @@ public class Agenda {
 	 * 
 	 * Exibe uma lista dos contatos já cadastrados até o momento.
 	 */
-	public void listarContatos() {
+	public String listarContatos() {
+		String saida = "";
 		for (int i = 0; i < contatos.length; i++) {
-			if(contatos[i] != null)
-				System.out.printf("%d - %s %s%n", contatos[i].getPosicao(), contatos[i].getNome(), contatos[i].getSobrenome());
+			if (!(contatos[i] == null)) {
+				saida += (i + 1) + " - " + contatos[i].getNome() + " " + contatos[i].getSobrenome() + System.lineSeparator();
+			}	
 		}
-		System.out.println();
+		return saida;
 	}
 	
 	/**
