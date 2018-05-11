@@ -14,6 +14,7 @@ public class Agenda {
 	 */
 	private Contato[] contatos;
 	
+	
 	/**
 	 * Constrói uma Agenda, que inicializa um conjunto de 100 contatos com (null) 
 	 */

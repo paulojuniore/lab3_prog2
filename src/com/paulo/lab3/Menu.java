@@ -106,8 +106,16 @@ public class Menu {
 	 * 
 	 */
 	public static void inserirNovoContato() {
+		int pos = 0;
 		System.out.print("Contato> ");
-		int pos = Integer.parseInt(scan.nextLine());
+		try {
+			pos = Integer.parseInt(scan.nextLine());
+		}
+		catch(NumberFormatException e) {
+			System.out.println("Dado inválido!\n");
+			return;
+		}
+		
 		if(agenda.getContatos()[pos-1] != null) {
 			Telefone telefone = null;
 			try {

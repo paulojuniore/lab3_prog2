@@ -42,6 +42,7 @@ public class Contato {
 	 */
 	private int nivelAmizade;
 	
+	
 	/**
 	 * Constrói um contato a partir da posição, nome, sobrenome, telefone e nível de amizade.
 	 * 
