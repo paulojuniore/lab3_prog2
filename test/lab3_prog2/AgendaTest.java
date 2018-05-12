@@ -12,7 +12,7 @@ import com.paulo.lab3.Telefone;
 /**
  * Classe de testes da classe Agenda usando o JUnit
  * 
- * @author Paulo Mendes da Silva Júnior - 117210922
+ * @author Paulo Mendes da Silva JÃºnior - 117210922
  *
  */
 
@@ -44,7 +44,7 @@ public class AgendaTest {
 	}
 	
 	/**
-	 * Testa o cadastro de um contato em uma posição válida e vazia.
+	 * Testa o cadastro de um contato em uma posiÃ§Ã£o vÃ¡lida e vazia.
 	 */
 	@Test
 	public void testCadastrarContatoPosVazia() {
@@ -52,7 +52,7 @@ public class AgendaTest {
 	}
 	
 	/**
-	 * Testa o cadastro de um contato em uma posição já ocupada.
+	 * Testa o cadastro de um contato em uma posiÃ§Ã£o jÃ¡ ocupada.
 	 */
 	@Test
 	public void testCadastrarContatoPosExistente() {
@@ -60,7 +60,7 @@ public class AgendaTest {
 	}
 	
 	/**
-	 * Testa o cadastro de um contato em uma posição inválida.
+	 * Testa o cadastro de um contato em uma posiÃ§Ã£o invÃ¡lida.
 	 */
 	@Test
 	public void testCadastrarContatoPosInvalida() {
@@ -68,14 +68,14 @@ public class AgendaTest {
 	}
 	
 	/**
-	 * Testa o cadastro de um contato em uma posição válida.
+	 * Testa o cadastro de um contato em uma posiÃ§Ã£o vÃ¡lida.
 	 */
 	public void testCadastrarContatoValida() {
 		assertEquals(a1.cadastrarContato(100, "Junior", "Pereira", t1, 5), true);
 	}
 	
 	/**
-	 * Testa o método listarContatos.
+	 * Testa o mÃ©todo listarContatos.
 	 */
 	@Test
 	public void testListarContatos() {
@@ -86,8 +86,8 @@ public class AgendaTest {
 	}
 
 	/**
-	 * Testa o método equals.
-	 * Duas agendas são iguais se tiverem os mesmos contatos nas mesmas posições.
+	 * Testa o mÃ©todo equals.
+	 * Duas agendas sÃ£o iguais se tiverem os mesmos contatos nas mesmas posiï¿½ï¿½es.
 	 */
 	@Test
 	public void testEqualsObject() {

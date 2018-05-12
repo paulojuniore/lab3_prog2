@@ -10,7 +10,7 @@ import com.paulo.lab3.Telefone;
 /**
  * Classe de testes da classe Telefone usando o JUnit.
  * 
- * @author Paulo Mendes da Silva J˙nior - 117210922
+ * @author Paulo Mendes da Silva J√∫nior - 117210922
  * 
  */
 
@@ -31,7 +31,7 @@ public class TelefoneTest {
 	}
 	
 	/**
-	 * Testa o mÈtodo toString.
+	 * Testa o m√©todo toString.
 	 */
 	@Test
 	public void testToString() {
@@ -39,7 +39,7 @@ public class TelefoneTest {
 	}
 	
 	/**
-	 * Testa se dois telefones s„o iguais. (numero e o ddd s„o iguais)
+	 * Testa se dois telefones s√£o iguais. (numero e o ddd s√£o iguais)
 	 */
 	@Test
 	public void testEqualsObject() {
@@ -47,7 +47,7 @@ public class TelefoneTest {
 	}
 	
 	/**
-	 * Testa se dois telefones s„o diferentes. (numero e ddd s„o diferentes)
+	 * Testa se dois telefones s√£o diferentes. (numero e ddd n√£o diferentes)
 	 */
 	@Test
 	public void testNotEqualsObject() {
@@ -63,7 +63,7 @@ public class TelefoneTest {
 	}
 	
 	/**
-	 * Testa o construtor com o codigoPais inv·lido.
+	 * Testa o construtor com o codigoPais inv√°lido.
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void testTelefoneCodigoPaisInvalido() {
@@ -87,7 +87,7 @@ public class TelefoneTest {
 	}
 	
 	/**
-	 * Testa o construtor com o numero inv·lido.
+	 * Testa o construtor com o numero inv√°lido.
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void testTelefoneNumeroInvalido() {
@@ -103,7 +103,7 @@ public class TelefoneTest {
 	}
 	
 	/**
-	 * Testa o construtor com o tipo inv·lido.
+	 * Testa o construtor com o tipo inv√°lido.
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void testTelefoneTipoInvalido() {

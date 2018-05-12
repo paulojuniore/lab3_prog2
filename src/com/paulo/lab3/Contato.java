@@ -28,17 +28,17 @@ public class Contato {
 	private String sobrenome;
 	
 	/**
-	 * Representa o telefone do contato na agenda.
+	 * Representa os telefones de um contato na agenda.
 	 */
 	private Telefone[] telefones = new Telefone[3];
 	
 	/**
-	 * Representa a posição atual do telefone na agenda.
+	 * Representa a posição atual dos telefones de um contato na agenda.
 	 */
 	private int posicaoTelefone = 1; 
 	
 	/**
-	 * Representa o nível de Amizade do telefone (1-Distante; 2-Colega; 3-Amigo; 4-Amigão; 5-Irmão)
+	 * Representa o nível de Amizade do contato (1-Distante; 2-Colega; 3-Amigo; 4-Amigão; 5-Irmão)
 	 */
 	private int nivelAmizade;
 	
@@ -123,14 +123,16 @@ public class Contato {
 	/**
 	 * Altera o sobrenome do contato.
 	 * 
-	 * @param sobrenome : sobrenome do contato.
+	 * @param sobrenome : o sobrenome do contato.
 	 */
 	public void setSobrenome(String sobrenome) {
 		this.sobrenome = sobrenome;
 	}
 	
 	/**
-	 * Retorna o telefone do contato.
+	 * Retorna o telefone do contato na posição especificada.
+	 * 
+	 * @param posicao : a posição do contato na agenda.
 	 * 
 	 * @return : o telefone do contato.
 	 */
@@ -139,7 +141,7 @@ public class Contato {
 	}
 	
 	/**
-	 * Retorna o nivel de amizade do contato. de 1 a 5.
+	 * Retorna o nivel de amizade do contato, inteiro entre 1 e 5, inclusive.
 	 * 
 	 * @return : o nivel de amizade.
 	 */
@@ -148,7 +150,7 @@ public class Contato {
 	}
 	
 	/**
-	 * retorna o nível de amizade do contato.
+	 * retorna o conceito do nível de amizade do contato.
 	 * 
 	 * @param nivelAmizade : representa o nível de amizade, inteiro entre 1 e 5, inclusive.
 	 * 
@@ -185,6 +187,7 @@ public class Contato {
 	 * Verifica a igualdade de dois contatos a partir do nome.
 	 * 
 	 * @param contato : recebe um objeto de um tipo mais geral.
+	 * 
 	 * @return : um boolean que representa a igualdade entre dois contatos. Dois contatos são iguais se possuem o mesmo nome. 
 	 */
 	@Override
@@ -194,6 +197,8 @@ public class Contato {
 	
 	/**
 	 * Representação String de um objeto Contato no formato: NOME SOBRENOME - [TELEFONES..] - NIVEL DE AMIZADE
+	 * 
+	 * @return : a representação String do objeto Contato.
 	 */
 	@Override
 	public String toString() {

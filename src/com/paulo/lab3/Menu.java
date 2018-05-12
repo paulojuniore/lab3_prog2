@@ -48,17 +48,16 @@ public class Menu {
 					break;
 				
 				default:
-					System.out.println("OPÇÃO INVÁLIDA!\n");
+					System.out.println("Opção Inválida!\n");
 					break;			
 			}
 		}
 	}
 	
-	
 	/**
 	 * Exibe o menu com as opções comuns em uma agenda.
 	 * 
-	 * @return : Contém uma entrada de operação no final do método.
+	 * @return : Contém uma entrada de operação no final do método no formato String.
 	 */
 	public static String exibirMenu() {
 		System.out.println("(C)adastrar Contato");
@@ -72,7 +71,7 @@ public class Menu {
 	
 	/**
 	 * Cadastra um contato na agenda. Pode gerar exceções caso seja passado algum valor inválido.
-	 * Como por exemplo uma posição inexistente na agenda ou um nível de amizade inválido.
+	 * Como por exemplo: uma posição inexistente na agenda ou um nível de amizade inválido.
 	 * 
 	 */
 	public static void cadastrarContato() {
@@ -81,7 +80,7 @@ public class Menu {
 		try {
 			posicao = Integer.parseInt(scan.nextLine());
 			if(posicao <= 0 || posicao > 100) {
-				System.out.println("POSIÇÃO INVÁLIDA!\n");
+				System.out.println("Posição Inválida!\n");
 				return;
 			}
 		}
@@ -148,6 +147,7 @@ public class Menu {
 	
 	/**
 	 * Contém as entradas dos dados para o telefone, como código do país, ddd, número e tipo de contato.
+	 * Método pode lançar exceções caso ocorram dados inválidos.
 	 * 
 	 * @return : retorna um objeto do tipo Telefone para o seu chamador. 
 	 * 
@@ -170,6 +170,11 @@ public class Menu {
 	/**
 	 * Menu que contém diversos tipos de consulta, para que o usuário escolha a que preferir.
 	 * As operações são realizadas interna/externamente através da composição de classes.
+	 * 1 - Consulta pelo nome do contato;
+	 * 2 - Consulta pela posição do contato;
+	 * 3 - Consulta pelo nível de amizade;
+	 * 4 - Consulta pela quantidade de amigos com determinado nível de amizade;
+	 * 5 - Consulta da média de amizade da agenda.
 	 *
 	 */
 	public static void consultasPersonalizadas() {
@@ -217,10 +222,10 @@ public class Menu {
 					if(pos >= 1 && pos <= 100 && agenda.getContatos()[pos-1] != null)
 						System.out.println(agenda.exibirContato(pos));
 					else
-						System.out.println("POSIÇÃO INVÁLIDA!\n");
+						System.out.println("Posição Inválida!\n");
 				}
 				catch(NumberFormatException e) {
-					System.out.println("Dado inválido!\n");
+					System.out.println("Posição Inválida\n");
 				}
 				break;
 				

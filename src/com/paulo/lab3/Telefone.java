@@ -1,7 +1,7 @@
 package com.paulo.lab3;
 
 /**
- * Representa os números de telefone de um contato.
+ * Representa os número de telefone de um contato.
  * Todo telefone possui código do país, ddd, número e o tipo de telefone.
  * 
  * @author Paulo Mendes da Silva Júnior - 117210922
@@ -10,17 +10,17 @@ package com.paulo.lab3;
 public class Telefone {
 	
 	/**
-	 * Representa o código do país do número de telefone
+	 * Representa o código do país do número de telefone. ex: (+55)
 	 */
 	private String codigoPais;
 	
 	/**
-	 * Representa o ddd do estado do número de telefone ex: (83)
+	 * Representa o ddd do estado do número de telefone. ex: (83)
 	 */
 	private String ddd;
 	
 	/**
-	 * Representa o número de telefone ex: (8845-9039)
+	 * Representa o número de telefone. ex: (8845-9039)
 	 */
 	private String numero;
 	
@@ -35,7 +35,7 @@ public class Telefone {
 	 * 
 	 * @param codigoPais : código do país ex: (+55)
 	 * @param ddd : ex: (083)
-	 * @param numero : ex: 98845-9039
+	 * @param numero : ex: 98845-9039 ou 988459039 ou 88459039
 	 * @param tipo : (CELULAR, TRABALHO ou CASA) 
 	 */
 	public Telefone(String codigoPais, String ddd, String numero, String tipo) {
@@ -63,7 +63,7 @@ public class Telefone {
 	/**
 	 * Retorna o código do país.
 	 * 
-	 * @return : codigo do país
+	 * @return : codigo do país.
 	 */
 	public String getCodigoPais() {
 		return codigoPais;
@@ -72,7 +72,7 @@ public class Telefone {
 	/**
 	 * Altera o código do país a partir do novo código.
 	 * 
-	 * @param codigoPais
+	 * @param codigoPais : código do país.
 	 */
 	public void setCodigoPais(String codigoPais) {
 		this.codigoPais = codigoPais;
@@ -81,7 +81,7 @@ public class Telefone {
 	/**
 	 * Retorna o ddd do telefone.
 	 * 
-	 * @return : ddd do telefone
+	 * @return : ddd do telefone.
 	 */
 	public String getDdd() {
 		return ddd;
@@ -90,7 +90,7 @@ public class Telefone {
 	/**
 	 * Altera o ddd do telefone a partir da passagem do novo ddd.
 	 * 
-	 * @param ddd : ddd do telefone
+	 * @param ddd : ddd do telefone.
 	 */
 	public void setDdd(String ddd) {
 		this.ddd = ddd;
@@ -99,7 +99,7 @@ public class Telefone {
 	/**
 	 * Retorna o número de telefone.
 	 * 
-	 * @return : número do telefone
+	 * @return : número do telefone.
 	 */
 	public String getNumero() {
 		return numero;
@@ -126,7 +126,7 @@ public class Telefone {
 	/**
 	 * Altera o tipo de contato a partir da passagem do novo tipo.
 	 * 
-	 * @param tipo : tipo do contato
+	 * @param tipo : tipo do contato.
 	 */
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
@@ -134,7 +134,9 @@ public class Telefone {
 	
 	/**
 	 * Retorna a representação String de um objeto do tipo telefone.
-	 * A saída atende ao seguinte formato: (CODIGO DDD NUMERO)
+	 * A saída atende ao seguinte formato: (CODIGO DDD NUMERO).
+	 * 
+	 * @return : representação String de um objeto Telefone.
 	 */
 	@Override
 	public String toString() {
@@ -144,6 +146,10 @@ public class Telefone {
 	/**
 	 * Sobrescreve o método equals.
 	 * Verifica se dois telefones são iguais pelo ddd e número do telefone.
+	 * 
+	 * @param objeto : recebe um objeto mais geral para realizar as devidas comparações.
+	 * 
+	 * @return : um boolean que representa se os objetos são iguais ou não.
 	 */
 	@Override
 	public boolean equals(Object objeto) {

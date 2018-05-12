@@ -34,8 +34,14 @@ public class Agenda {
 	 * Não possui valor de retorno.
 	 * 
 	 * Cadastra um novo contato, todo contato possui uma posição, nome, sobrenome e telefone
-	 * @param contato : representa um contato que contém nome, sobrenome e telefone.
-	 * @param pos : representa a posição do contato na agenda.
+	 * 
+	 * @param posicao : representa a posição do contato na agenda.
+	 * @param nome : representa o nome do contato.
+	 * @param sobrenome : representa o sobrenome do contato.
+	 * @param telefone : representa o telefone do contato.
+	 * @param nivelAmizade : representa o nível de amizade de um contato.
+	 * 
+	 * @return : retorna um boolean que representa se a operação teve sucesso ou não.
 	 */
 	public boolean cadastrarContato(int posicao, String nome, String sobrenome, Telefone telefone, int nivelAmizade) throws NumberFormatException, IllegalArgumentException, NullPointerException {
 		if(posicao >= 1 && posicao <= 100) {
@@ -47,7 +53,9 @@ public class Agenda {
 	}
 	
 	/**
-	 * Exibe um contato já existente.
+	 * Exibe um contato já existente através de sua posição.
+	 * 
+	 * @param pos : a posição a qual deseja imprimir o contato.
 	 * 
 	 * @return : String que representa o contato buscado.
 	 */
@@ -56,7 +64,6 @@ public class Agenda {
 	}
 	
 	/**
-	 * Não possui valor de retorno.
 	 * 
 	 * Exibe uma lista dos contatos já cadastrados até o momento.
 	 */
@@ -72,10 +79,10 @@ public class Agenda {
 	
 	/**
 	 * Sobrescreve o método equals. 
-	 * Verifica a igualdade de duas agendas.
+	 * Verifica a igualdade de duas agendas, duas agendas são iguais se possuem os mesmos contatos nas mesmas posições.
 	 * 
 	 * @param agenda : recebe um objeto de um tipo mais geral.
-	 * @return : um boolean que representa a igualdade entre duas agendas. 
+	 * @return : retorna um boolean que representa a igualdade entre duas agendas. 
 	 */
 	@Override
 	public boolean equals(Object agenda) {
